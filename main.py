@@ -44,8 +44,8 @@ class User:
         self.email = email
         self.address = address
     
-    def create_account(self, name, email, address, account_type):
-        self.bank.create_account(name, email, address, account_type)
+    def createAccount(self, name, email, address, account_type):
+        self.bank.createAccount(name, email, address, account_type)
     
     def deposit(self, account_number, amount):
         if self.bank.accounts[account_number]:   
@@ -120,15 +120,15 @@ class User:
 
 
 class Admin:
-    def __init__(self, bank, name, email, address, account_type):
+    def __init__(self, bank, name, email, address):
         self.bank = bank
         self.name = name
         self.email = email
         self.address = address
-        self.account_type = account_type
 
-    def create_account(self, name, email, address, account_type):
-        self.bank.create_account(name, email, address, account_type)
+
+    def createAccount(self, name, email, address, account_type):
+        self.bank.createAccount(name, email, address, account_type)
 
     def delete_account(self, account_number):
         if self.bank.accounts[account_number]:
@@ -188,7 +188,7 @@ class Main:
                     choice = int(input("Enter Your Choice : "))
                     if choice == 1:
                         account_type = input('Enter your account type: ')
-                        user.create_account(name, email, address, account_type)
+                        user.createAccount(name, email, address, account_type)
 
                     elif choice == 2:
                         account_number = input('Enter your account number: ')
@@ -241,7 +241,7 @@ class Main:
                     choice = int(input("Enter Your Choice : "))
                     if choice == 1:
                         account_type = input('Enter your account type: ')
-                        admin.create_account(name, email, address, account_type)
+                        admin.createAccount(name, email, address, account_type)
 
                     elif choice == 2:
                         account_number = input('Enter your account number: ')
